@@ -1,35 +1,34 @@
 require('dotenv').config();
-const express = require('express');
-const app = express();
+const express = require('express'),
+    app = express(),
+    hbs = require('hbs');
 
-//     hbs = require('hbs');
+app.set('view engine', 'hbs');
+app.set('views', __dirname + '/views');
+app.use(express.static(__dirname + '/public'));
 
-// app.set('view engine', 'hbs');
-// app.set('views', __dirname + '/views');
-// app.use(express.static(__dirname + '/public'));
+//API GOOGLE TRENDS
+const googleTrends = require('google-trends-api');
 
-// API GOOGLE TRENDS
-// const googleTrends = require('google-trends-api');
+const optionsObject = {
+    keyword: 'Phone',
+    startTime: new Date(2017, 1, 15),
+    endTime: new Date(2018, 12, 15)
+}
 
-// const optionsObject = {
-//     keyword: 'Phone',
-//     startTime: new Date(2017, 1, 15),
-//     endTime: new Date(2018, 12, 15)
-// }
-
-// googleTrends.interestOverTime(optionsObject)
-//     .then(function (results) {
-//         app.get('/', (req, res) => {
-//             res.send(results);
-//         })
-//     })
-//     .catch(function (err) {
-//         console.error('Oh no there was an error', err);
-//     });
+googleTrends.interestOverTime(optionsObject)
+    .then(function (results) {
+        app.get('/', (req, res) => {
+            res.send(results);
+        })
+    })
+    .catch(function (err) {
+        console.error('Oh no there was an error', err);
+    });
 
 // ROTAS
 app.get('/', (req, res) => {
-    res.send('index')
+    res.render('index')
 })
 
 
