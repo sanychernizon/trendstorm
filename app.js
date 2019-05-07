@@ -1,5 +1,7 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
+
 //     hbs = require('hbs');
 
 // app.set('view engine', 'hbs');
@@ -32,7 +34,7 @@ app.get('/', (req, res) => {
 
 
 // SERVIDOR
-app.listen(3000, (error) => {
+app.listen(process.env.PORT || 3000, (error) => {
     if (error) {
         console.log('Erro: ' ,error)
     }
