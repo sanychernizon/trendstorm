@@ -27,8 +27,7 @@ app.use(express.static(__dirname + '/public'));
 
 // ROTAS
 app.get('/', (req, res) => {
-    // res.render('index')
-    console.log('Sera?')
+    res.send('index')
 })
 
 
