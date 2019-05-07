@@ -1,10 +1,10 @@
-const express = require('express'),
-    app = express(),
-    hbs = require('hbs');
+const express = require('express');
+const app = express();
+//     hbs = require('hbs');
 
-app.set('view engine', 'hbs');
-app.set('views', __dirname + '/views');
-app.use(express.static(__dirname + '/public'));
+// app.set('view engine', 'hbs');
+// app.set('views', __dirname + '/views');
+// app.use(express.static(__dirname + '/public'));
 
 // API GOOGLE TRENDS
 // const googleTrends = require('google-trends-api');
@@ -36,5 +36,5 @@ app.listen(3000, (error) => {
     if (error) {
         console.log('Erro: ' ,error)
     }
-    console.log('Logado!')
+    console.log('App rodando na porta 3000!')
 });
