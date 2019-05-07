@@ -1,0 +1,25 @@
+{
+  "name": "trendstorm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanychernizon/trendstorm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sanychernizon/trendstorm/issues"
+  },
+  "homepage": "https://github.com/sanychernizon/trendstorm#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "google-trends-api": "^4.9.0",
+    "hbs": "^4.0.4"
+  }
+}
