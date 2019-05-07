@@ -32,4 +32,4 @@ app.get('/', (req, res) => {
 
 
 // SERVIDOR
-app.listen(3000, () => console.log('Logado!'));
+app.listen(8080, () => console.log('Logado!'));
