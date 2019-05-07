@@ -27,9 +27,14 @@ googleTrends.interestOverTime(optionsObject)
 
 // ROTAS
 app.get('/', (req, res) => {
-    res.send('index')
+    res.render('index')
 })
 
 
 // SERVIDOR
-app.listen(5000, () => console.log('Logado!'));
+app.listen(3000, (error) => {
+    if (error) {
+        console.log('Erro: ' ,error)
+    }
+    console.log('Logado!')
+});
