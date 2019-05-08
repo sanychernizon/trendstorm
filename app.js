@@ -31,6 +31,13 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 
+app.get('/signin', (req, res) => {
+    res.render('signin')
+})
+
+app.get('/login', (req, res) => {
+    res.render('login')
+})
 
 // SERVIDOR
 app.listen(process.env.PORT || 3000, (error) => {
