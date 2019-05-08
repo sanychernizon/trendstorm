@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 
 
 // SERVIDOR
-app.listen(process.env.PORT || 3000, (error) => {
+app.listen(3008 || 3000, (error) => {
     if (error) {
         console.log('Erro: ' ,error)
     }
