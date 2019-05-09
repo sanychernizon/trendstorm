@@ -1,11 +1,25 @@
 require('dotenv').config();
 const express = require('express'),
     app = express(),
-    hbs = require('hbs');
+    hbs = require('hbs'),
+    passport = require('passport'),
+    GoogleStrategy = require('passport-google-oauth20'),
+    mongoose = require('mongoose'),
+    User = require('./models/user-model'),
+    cookieSession = require('cookie-session'),
+    bodyParser = require('body-parser');
+
+// SETUP
 
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieSession({
+    maxAge: 24 * 60 * 60 * 1000,
+    keys: [process.env.COOKIE_KEY]
+}))
+hbs.registerPartials(__dirname + '/views/partials');
 
 //API GOOGLE TRENDS
 const googleTrends = require('google-trends-api');
@@ -26,6 +40,51 @@ googleTrends.interestOverTime(optionsObject)
         console.error('Oh no there was an error', err);
     });
 
+// CONNECT MONGODB
+const dbName = 'users';
+mongoose.connect(`mongodb://localhost/${dbName}`, (err) => {
+    err ? console.log(err) : console.log(`Conectado ao Data Base: ${dbName}!`)
+})
+
+// SET UP PASSPORT
+app.use(passport.initialize());
+app.use(passport.session())
+
+passport.use(new GoogleStrategy({
+    callbackURL: "/auth/google/redirect",
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET
+},
+    function (token, tokenSecret, profile, done) {
+        console.log(profile);
+        User.findOne({ googleId: profile.id }).then((currentUser) => {
+            if (currentUser) {
+                console.log(`User is: ${currentUser}`);
+                done(null, currentUser);
+            } else {
+                new User({
+                    username: profile.displayName,
+                    googleId: profile.id,
+                    thumbnail: profile.photos[0].value
+                }).save().then((newUser) => {
+                    console.log('new user created:' + newUser);
+                    done(null, newUser);
+                })
+            }
+        })
+    }
+));
+
+passport.serializeUser(function (user, done) {
+    done(null, user);
+})
+
+passport.deserializeUser(function (id, done) {
+    User.findById(id).then((user) => {
+        done(null, user);
+    })
+})
+
 // ROTAS
 app.get('/', (req, res) => {
     res.render('index')
@@ -37,6 +96,14 @@ app.get('/signin', (req, res) => {
 
 app.get('/login', (req, res) => {
     res.render('login')
+})
+
+app.get('/auth/google', passport.authenticate('google', {
+    scope: ['profile']
+}))
+
+app.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => {
+    res
 })
 
 // SERVIDOR
