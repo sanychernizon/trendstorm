@@ -19,6 +19,7 @@ nav {
 
 nav ul {
     display: flex;
+    justify-content: end;
 }
 
 nav ul li {
@@ -33,6 +34,13 @@ nav ul li:hover {
     color: #111111;
 }
 
-nav img {
+#logo {
     width: 40%;
+}
+
+#thumbnail {
+    width: 40px;
+    height: 40px;
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
 }

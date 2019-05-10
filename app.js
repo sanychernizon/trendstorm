@@ -103,7 +103,26 @@ app.get('/auth/google', passport.authenticate('google', {
 }))
 
 app.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => {
-    res
+    res.redirect('/dashboard');
+})
+
+const authCheck = (req, res, next) => {
+    if (!req.user) {
+        res.redirect('/');
+    } else {
+        next();
+    }
+}
+
+app.get('/dashboard', authCheck, (req, res) => {
+    let user = req.user;
+    res.render('dashboard', { user })
+})
+
+// auth logout
+app.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect('/')
 })
 
 // SERVIDOR

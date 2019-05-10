@@ -1,0 +1,28 @@
+<nav>
+    <a href="/"><img id="logo" src="img/logo.svg"></a>
+    {{#if user}}
+    <ul>
+        <a href="#">
+            <li>Sobre a ferramenta</li>
+        </a>
+        <a href="/logout">
+            <li>Logout</li>
+        </a>
+        <a href="/dashboard">
+            <img id="thumbnail" src="{{user.thumbnail}}">
+        </a>
+    </ul>
+    {{else}}
+    <ul>
+        <a href="#">
+            <li>Sobre a ferramenta</li>
+        </a>
+        <a href="/signin">
+            <li>Cadastrar</li>
+        </a>
+        <a href="/login">
+            <li>Entrar</li>
+        </a>
+    </ul>
+    {{/if}}
+</nav>
