@@ -65,6 +65,7 @@ passport.use(new GoogleStrategy({
                 new User({
                     username: profile.displayName,
                     googleId: profile.id,
+                    email: profile.emails[0].value,
                     thumbnail: profile.photos[0].value
                 }).save().then((newUser) => {
                     console.log('new user created:' + newUser);
@@ -98,8 +99,12 @@ app.get('/login', (req, res) => {
     res.render('login')
 })
 
+app.post('/auth/local', (req, res) => {
+    console.log(req.body);
+})
+
 app.get('/auth/google', passport.authenticate('google', {
-    scope: ['profile']
+    scope: ['profile', 'email']
 }))
 
 app.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => {

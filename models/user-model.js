@@ -3,7 +3,8 @@ const mongoose = require('mongoose'),
 
 const userSchema = new Schema({
     username: String,
-    twitterId: String,
+    googleId: String,
+    email: String,
     thumbnail: String
 });
 
