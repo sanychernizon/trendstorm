@@ -7,6 +7,7 @@ const express = require('express'),
     mongoose = require('mongoose'),
     User = require('./models/user-model'),
     cookieSession = require('cookie-session'),
+    bcrypt = require('bcryptjs'),
     bodyParser = require('body-parser');
 
 // SETUP
@@ -100,23 +101,47 @@ app.get('/login', (req, res) => {
 })
 
 app.post('/auth/local', (req, res) => {
-    const  { name, email, password, password2 } = req.body;
+    const { name, email, password, password2 } = req.body;
     let errors = [];
-    
+
     // All fields filled
-    if (!name || !email || !password || !password2 ) {
-        errors.push({msg: 'Por favor, preencha TODOS os campos!'})
+    if (!name || !email || !password || !password2) {
+        errors.push({ msg: 'Por favor, preencha TODOS os campos!' })
     }
 
     // Check password
     if (password !== password2) {
-        errors.push({msg: 'As senhas não estão iguais!'})
+        errors.push({ msg: 'As senhas não estão iguais!' })
     }
 
     if (errors.length > 0) {
-        res.render('signin', {errors, name, email, password, password2});
+        res.render('signin', { errors, email, name, password, password2 });
     } else {
-        res.send('Conta criada!')
+        User.findOne({ email: email })
+            .then(user => {
+                if (user) {
+                    errors.push({ msg: 'Usuário já cadastrado!' })
+                    res.render('signin', { errors, email, name, password, password2 });
+                } else {
+                    let newUser = new User({
+                        username: name,
+                        password: password,
+                        email: email
+                    })
+                    // Hash password
+                    bcrypt.genSalt(10, (err, salt) => {
+                        bcrypt.hash(newUser.password, salt, (err, hash) => {
+                            if(err) throw err;
+                            // Set password to hash
+                            newUser.password = hash;
+                            // Save new user
+                            newUser.save()
+                                .then(user => res.render('dashboard', { user }))
+                                .catch(err => console.log(err))
+                        })
+                    })
+                }
+            })
     }
 
 })
@@ -151,7 +176,7 @@ app.get('/logout', (req, res) => {
 // SERVIDOR
 app.listen(process.env.PORT || 3000, (error) => {
     if (error) {
-        console.log('Erro: ' ,error)
+        console.log('Erro: ', error)
     }
     console.log('App rodando na porta 3000!')
 });

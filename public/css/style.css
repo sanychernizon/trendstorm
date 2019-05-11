@@ -24,13 +24,13 @@ nav ul {
 
 nav ul li {
     margin-right: 10px;
-    border: 1px solid #eeeeee;
+    background-image: linear-gradient(to bottom right, #222222, #555555);
     padding: 10px;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 nav ul li:hover {
-    background-image: linear-gradient(to bottom right, #ffffff, #cccccc);
+    background-image: linear-gradient(to bottom right, #ffffff, #818181);
     color: #111111;
 }
 
