@@ -30,12 +30,15 @@ hbs.registerPartials(__dirname + '/views/partials');
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+
     next();
 });
 
 // EXPRESS SESSION
 
-
+// PASSPORT
+require('./config/passport-local')(passport);
 
 //API GOOGLE TRENDS
 const googleTrends = require('google-trends-api');
@@ -104,7 +107,8 @@ passport.deserializeUser(function (id, done) {
 
 // ROTAS
 app.get('/', (req, res) => {
-    res.render('index')
+    let user = req.user;
+    res.render('index', { user })
 })
 
 app.get('/signin', (req, res) => {
@@ -170,6 +174,14 @@ app.get('/auth/google', passport.authenticate('google', {
 
 app.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => {
     res.redirect('/dashboard');
+})
+
+app.post('/auth', (req, res, next) => {
+    passport.authenticate('local', {
+        successRedirect: '/dashboard',
+        failureRedirect: '/login',
+        failureFlash: true
+    })(req, res, next);
 })
 
 const authCheck = (req, res, next) => {
