@@ -1,8 +1,9 @@
 <div>
+    {{>messages}}
     <form method="POST" action="/auth">
         <label for="email">E-mail:</label><input name="email" type="email">
         <label for="password">Senha:</label><input name="password" type="password">
         <button type="submit">Entrar</button>
     </form>
-    <a href="/auth/google">Login with Google</a>
+    <a href="/auth/google">Log in with Google</a>
 </div>

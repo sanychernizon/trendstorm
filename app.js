@@ -7,6 +7,8 @@ const express = require('express'),
     mongoose = require('mongoose'),
     User = require('./models/user-model'),
     cookieSession = require('cookie-session'),
+    session = require('express-session'),
+    flash = require('connect-flash'),
     bcrypt = require('bcryptjs'),
     bodyParser = require('body-parser');
 
@@ -16,11 +18,24 @@ app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(flash());
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
     keys: [process.env.COOKIE_KEY]
 }))
 hbs.registerPartials(__dirname + '/views/partials');
+
+// GLOBAL VARS
+
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    next();
+});
+
+// EXPRESS SESSION
+
+
 
 //API GOOGLE TRENDS
 const googleTrends = require('google-trends-api');
@@ -131,12 +146,15 @@ app.post('/auth/local', (req, res) => {
                     // Hash password
                     bcrypt.genSalt(10, (err, salt) => {
                         bcrypt.hash(newUser.password, salt, (err, hash) => {
-                            if(err) throw err;
+                            if (err) throw err;
                             // Set password to hash
                             newUser.password = hash;
                             // Save new user
                             newUser.save()
-                                .then(user => res.render('dashboard', { user }))
+                                .then(user => {
+                                    req.flash('success_msg', 'Usuário criado com sucesso! Você já pode logar :)')
+                                    res.redirect('/login')
+                                })
                                 .catch(err => console.log(err))
                         })
                     })
