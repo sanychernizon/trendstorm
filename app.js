@@ -41,10 +41,10 @@ googleTrends.interestOverTime(optionsObject)
     });
 
 // CONNECT MONGODB
-const dbName = 'users';
-mongoose.connect(`mongodb://localhost/${dbName}`, (err) => {
-    err ? console.log(err) : console.log(`Conectado ao Data Base: ${dbName}!`)
-})
+const db = require('./config/keys').MongoURI;
+mongoose.connect(db, { useNewUrlParser: true })
+    .then(() => console.log('MongoDB connected'))
+    .catch((err) => { console.log(err) })
 
 // SET UP PASSPORT
 app.use(passport.initialize());
@@ -100,7 +100,25 @@ app.get('/login', (req, res) => {
 })
 
 app.post('/auth/local', (req, res) => {
-    console.log(req.body);
+    const  { name, email, password, password2 } = req.body;
+    let errors = [];
+    
+    // All fields filled
+    if (!name || !email || !password || !password2 ) {
+        errors.push({msg: 'Por favor, preencha TODOS os campos!'})
+    }
+
+    // Check password
+    if (password !== password2) {
+        errors.push({msg: 'As senhas não estão iguais!'})
+    }
+
+    if (errors.length > 0) {
+        res.render('signin', {errors, name, email, password, password2});
+    } else {
+        res.send('Conta criada!')
+    }
+
 })
 
 app.get('/auth/google', passport.authenticate('google', {
