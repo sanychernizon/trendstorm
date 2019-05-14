@@ -1,20 +1,20 @@
-<div>
+<div class="msg-alert">
     {{#if errors}}
     {{#each errors}}
-    <div>{{this.msg}}</div>
+    <div class="msg-error">{{this.msg}}</div>
     {{/each}}
     {{/if}}
 
     {{#if success_msg}}
-    <div>{{success_msg}}</div>
+    <div class="msg-success">{{success_msg}}</div>
     {{/if}}
 
     {{#if error_msg}}
-    <div>{{error_msg}}</div>
+    <div class="msg-error">{{error_msg}}</div>
     {{/if}}
 
     {{#if error}}
-    <div>{{error}}</div>
+    <div class="msg-error">{{error}}</div>
     {{/if}}
 
 </div>

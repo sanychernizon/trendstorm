@@ -10,6 +10,10 @@ body {
     background-image: linear-gradient(to bottom right, #111111, #333333);
 }
 
+main {
+    height: 80%;
+}
+
 nav {
     padding: 15px;
     display: flex;
@@ -29,7 +33,7 @@ nav ul li {
     border-radius: 10px;
 }
 
-nav ul li:hover {
+nav ul li:hover, .cadastrar-btn button:hover {
     background-image: linear-gradient(to bottom right, #ffffff, #818181);
     color: #111111;
 }
@@ -43,4 +47,107 @@ nav ul li:hover {
     height: 40px;
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* FORM */
+
+.msg-alert {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.msg-error {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid rgb(107, 34, 34);
+    background-color: rgb(224, 137, 137);
+    color: rgb(100, 9, 9);
+}
+
+.msg-success {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid rgb(34, 107, 56);
+    background-color: rgb(163, 230, 161);
+    color: rgb(9, 100, 9);
+}
+
+.box-form {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 20px; 
+}
+
+.form-signin {
+    display: flex;
+}
+
+.form-signin-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.form-signin-list li {
+    margin-bottom: 15px;
+}
+
+.form-signin-list li label {
+    padding-right: 10px;
+}
+
+.form-signin-list li input {
+    border: none;
+    border-radius: 10px;
+}
+
+.form-signin-list li input {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1rem;
+    padding: 5px 10px 5px 10px;
+    width:220px;
+}
+
+.cadastrar-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cadastrar-btn button {
+    padding: 10px 25px 10px 25px;
+    border-radius: 10px;
+    border:none;
+    background-image: linear-gradient(to bottom right, #222222, #555555);
+    color: white;
+    text-transform: uppercase;
+}
+
+.line {
+    height: 1px;
+    width: 40%;
+    background-color: #cccccc;
+}
+
+.ou-line {
+    margin: 15px 0 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #cccccc
+}
+
+.google-btn {
+    display: flex;
+    justify-content: center;
 }

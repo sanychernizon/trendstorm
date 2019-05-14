@@ -76,7 +76,7 @@ passport.use(new GoogleStrategy({
 },
     function (token, tokenSecret, profile, done) {
         console.log(profile);
-        User.findOne({ googleId: profile.id }).then((currentUser) => {
+        User.findOne({ email: profile.emails[0].value }).then((currentUser) => {
             if (currentUser) {
                 console.log(`User is: ${currentUser}`);
                 done(null, currentUser);

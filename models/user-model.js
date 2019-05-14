@@ -6,7 +6,7 @@ const userSchema = new Schema({
     password: String,
     googleId: String,
     email: String,
-    thumbnail: String
+    thumbnail: { type: String, default: '/img/icon-user.png' }
 });
 
 const User = mongoose.model('user', userSchema);

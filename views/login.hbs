@@ -1,9 +1,24 @@
-<div>
+<div class="container">
     {{>messages}}
-    <form method="POST" action="/auth">
-        <label for="email">E-mail:</label><input name="email" type="email">
-        <label for="password">Senha:</label><input name="password" type="password">
-        <button type="submit">Entrar</button>
-    </form>
-    <a href="/auth/google">Log in with Google</a>
+    <div class="box-form">
+        <form method="POST" action="/auth">
+            <div class="form-signin">
+                <ul class="form-signin-list">
+                    <li><input name="email" type="email" placeholder="E-mail"></li>
+                    <li><input name="password" type="password" placeholder="Senha"></li>
+                </ul>
+            </div>
+            <div class="cadastrar-btn">
+                <button type="submit">Cadastrar</button>
+            </div>
+        </form>
+        <div class="ou-line">
+            <div class="line"></div>
+            <p>ou</p>
+            <div class="line"></div>
+        </div>
+        <div class="google-btn">
+            <a href="/auth/google">Entrar com Google</a>
+        </div>
+    </div>
 </div>

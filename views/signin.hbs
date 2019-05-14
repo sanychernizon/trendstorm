@@ -1,11 +1,26 @@
-<div>
+<div class="container">
     {{>messages}}
-    <form method="POST" action="/auth/local">
-        <label for="name">Nome:</label><input name="name" type="text">
-        <label for="email">E-mail:</label><input name="email" type="email">
-        <label for="password">Senha:</label><input name="password" type="password">
-        <label for="password2">Repetir senha:</label><input name="password2" type="password">
-        <button type="submit">Cadastrar</button>
-    </form>
-    <a href="/auth/google">Sign in with Google</a>
+    <div class="box-form">
+        <form method="POST" action="/auth/local">
+            <div class="form-signin">
+                <ul class="form-signin-list">
+                    <li><input name="name" type="text" placeholder="Nome"></li>
+                    <li><input name="email" type="email" placeholder="E-mail"></li>
+                    <li><input name="password" type="password" placeholder="Senha"></li>
+                    <li><input name="password2" type="password" placeholder="Repita a senha"></li>
+                </ul>
+            </div>
+            <div class="cadastrar-btn">
+                <button type="submit">Cadastrar</button>
+            </div>
+        </form>
+        <div class="ou-line">
+            <div class="line"></div>
+            <p>ou</p>
+            <div class="line"></div>
+        </div>
+        <div class="google-btn">
+            <a href="/auth/google">Entrar com Google</a>
+        </div>
+    </div>
 </div>
