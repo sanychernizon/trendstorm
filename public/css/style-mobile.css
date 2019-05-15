@@ -1,0 +1,22 @@
+@media (max-width: 800px) {
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center
+    }
+
+    nav a {
+        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #logo {
+        width: 70%;
+        margin: 15px;
+    }
+
+}

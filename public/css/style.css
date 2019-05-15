@@ -151,3 +151,49 @@ nav ul li:hover, .cadastrar-btn button:hover {
     display: flex;
     justify-content: center;
 }
+
+/* DASHBOARD */
+
+#btn-add-panel {
+    padding: 20px;
+    background: #555555;
+}
+
+/* POPUP */
+
+#popup {
+    width: 100%;
+    height: 85%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    z-index: 999;
+}
+
+.box-form-popup {
+    width: 80%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.box-form-popup form {
+    display: flex;
+    flex-direction: column;
+}
+
+#close-popup {
+    background: #333333;
+    padding: 10px;
+}
+
+.box-dashboard {
+    display: inline-block;
+    position: absolute;
+}

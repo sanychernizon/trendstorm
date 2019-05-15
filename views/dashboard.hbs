@@ -1,5 +1,11 @@
-<h1>Bem vindo {{user.username}}</h1>
+<div class="box-dashboard">
+    <h1>Bem vindo {{user.username}}</h1>
+    <h2>Meus paineis</h2>
+    <div id="btn-add-panel">Adicionar painel</div>
+</div>
 
-<h2>Meus paineis</h2>
-
-<a href="/">Adicionar painel</a>
+<div id="popup">
+    {{>popup}}
+</div>
+    
+    <script src="js/popup.js"></script>
