@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config();;
 const express = require('express'),
     app = express(),
     hbs = require('hbs'),
@@ -10,7 +10,8 @@ const express = require('express'),
     session = require('express-session'),
     flash = require('connect-flash'),
     bcrypt = require('bcryptjs'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    googleTrendsController = require('./controllers/google-trends');
 
 // SETUP
 
@@ -35,29 +36,8 @@ app.use((req, res, next) => {
     next();
 });
 
-// EXPRESS SESSION
-
 // PASSPORT
 require('./config/passport-local')(passport);
-
-//API GOOGLE TRENDS
-const googleTrends = require('google-trends-api');
-
-const optionsObject = {
-    keyword: 'Phone',
-    startTime: new Date(2017, 1, 15),
-    endTime: new Date(2018, 12, 15)
-}
-
-googleTrends.interestOverTime(optionsObject)
-    .then(function (results) {
-        app.get('/', (req, res) => {
-            res.send(results);
-        })
-    })
-    .catch(function (err) {
-        console.error('Oh no there was an error', err);
-    });
 
 // CONNECT MONGODB
 const db = require('./config/keys').MongoURI;
@@ -197,6 +177,17 @@ app.get('/dashboard', authCheck, (req, res) => {
     res.render('dashboard', { user })
 })
 
+//ROTAS PANEL
+
+app.post('/panel/gapi',authCheck , googleTrendsController);
+
+app.post('/panel', authCheck, (req, res) => {
+    let user = req.user;
+    const { keyword, panelName, startTime, endTime } = req.body;
+
+    res.render('panel', { keyword, panelName, startTime, endTime, user })
+});
+
 // auth logout
 app.get('/logout', (req, res) => {
     req.logout();
@@ -204,9 +195,11 @@ app.get('/logout', (req, res) => {
 })
 
 // SERVIDOR
-app.listen(process.env.PORT || 3000, (error) => {
+const port = process.env.PORT || 3006;
+
+app.listen(port, (error) => {
     if (error) {
         console.log('Erro: ', error)
     }
-    console.log('App rodando na porta 3000!')
+    console.log('App rodando na porta! ' + port)
 });

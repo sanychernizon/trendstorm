@@ -1,0 +1,32 @@
+<div>
+    <canvas id="myChart"></canvas>
+</div>
+<div id="panel-name">{{ panelName }}</div>
+<div id="keyword">{{ keyword }}</div>
+<div id="startTime">{{ startTime }}</div>
+<div id="endTime">{{ endTime }}</div>
+
+<button type="submit" id="save-btn">Salvar</button>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="/js/chart-google.js"></script>
+
+<script>
+    const mongoose = require('mongoose');
+    const Panel = require('./models/panel-model');
+
+    const saveBtn = document.querySelector('#save-btn')
+    saveBtn.addEventListener('click', () => {
+        const panel = new Panel({
+            name: {{ panelName }},
+            keyword: {{ keyword }},
+            startTime: {{ startTime }},
+            endTime: {{ endTime }}
+        }).save().then((newPanel) => {
+            console.log('new user created:' + newPanel);
+            done(null, newPanel);
+        })
+    });
+
+</script>
