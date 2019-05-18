@@ -1,4 +1,5 @@
-const keywordDOM = document.querySelector('#keyword').textContent;
+const panelNameDOM = document.querySelector('#panelName').textContent
+const keywordDOM = document.querySelector('#keyword').textContent
 const startTimeDOM = document.querySelector('#startTime').textContent
 const endTimeDOM = document.querySelector('#endTime').textContent
 
@@ -9,7 +10,7 @@ const config = {
 }
 
 axios.post('/panel/gapi', 
-    `keyword=${keywordDOM}&startTime=${startTimeDOM}&endTime=${endTimeDOM}`
+    `panelName=${panelNameDOM}&keyword=${keywordDOM}&startTime=${startTimeDOM}&endTime=${endTimeDOM}`
 , config)
     .then((data) => {        
         const { resultsGoogleTrends } = data.data;

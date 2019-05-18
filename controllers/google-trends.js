@@ -21,6 +21,6 @@ const googleTrendsController = (req, res) => {
         .catch(function (err) {
             console.error('Oh no there was an error', err);
         });
-}
+    }
 
 module.exports = googleTrendsController;

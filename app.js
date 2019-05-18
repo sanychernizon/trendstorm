@@ -11,7 +11,8 @@ const express = require('express'),
     flash = require('connect-flash'),
     bcrypt = require('bcryptjs'),
     bodyParser = require('body-parser'),
-    googleTrendsController = require('./controllers/google-trends');
+    googleTrendsController = require('./controllers/google-trends'),
+    Panel = require('./models/panel-model');
 
 // SETUP
 
@@ -179,13 +180,26 @@ app.get('/dashboard', authCheck, (req, res) => {
 
 //ROTAS PANEL
 
-app.post('/panel/gapi',authCheck , googleTrendsController);
+app.post('/panel/gapi', authCheck, googleTrendsController);
 
 app.post('/panel', authCheck, (req, res) => {
     let user = req.user;
-    const { keyword, panelName, startTime, endTime } = req.body;
+    const { panelName, keyword, startTime, endTime } = req.body;
 
-    res.render('panel', { keyword, panelName, startTime, endTime, user })
+    const panel = new Panel({
+        name: panelName,
+        keyword: keyword,
+        startTime: startTime,
+        endTime: endTime
+    })
+        .save((err) => {
+            if (err) {
+                console.log(err);
+            }
+            res.render('panel', { panelName, keyword, startTime, endTime, user })
+        })
+        // .then((data) => {
+        // });
 });
 
 // auth logout
