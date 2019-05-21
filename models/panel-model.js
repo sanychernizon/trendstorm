@@ -5,7 +5,8 @@ const panelSchema = new Schema({
     name: String,
     keyword: String,
     startTime: String,
-    endTime: String
+    endTime: String,
+    userId : String
 });
 
 const Panel = mongoose.model('panel', panelSchema);

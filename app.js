@@ -190,7 +190,8 @@ app.post('/panel', authCheck, (req, res) => {
         name: panelName,
         keyword: keyword,
         startTime: startTime,
-        endTime: endTime
+        endTime: endTime,
+        userId: user._id
     })
         .save((err) => {
             if (err) {
@@ -198,8 +199,6 @@ app.post('/panel', authCheck, (req, res) => {
             }
             res.render('panel', { panelName, keyword, startTime, endTime, user })
         })
-        // .then((data) => {
-        // });
 });
 
 // auth logout
