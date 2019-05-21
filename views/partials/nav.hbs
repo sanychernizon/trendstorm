@@ -1,21 +1,29 @@
-<nav>
-    <a href="/"><img id="logo" src="img/logo-trendstorm.png"></a>
+<nav id="nav-desktop">
+    <div id="logo"><a href="/"><img src="img/logo-trendstorm.png"></a></div>
     {{#if user}}
-    <ul>
-        <a href="#">
-            <li>Sobre a ferramenta</li>
+    <div class="box-nav-login">
+        <a id="menu-login">
+            <div class="thumb-menu">
+                {{user.username}}
+                <img id="thumbnail" src="{{user.thumbnail}}">
+            </div>
         </a>
-        <a href="/logout">
-            <li>Logout</li>
-        </a>
-        <a href="/dashboard">
-            <img id="thumbnail" src="{{user.thumbnail}}">
-        </a>
-    </ul>
+        <div id="nav-login">
+            <a href="/dashboard">
+                Meus Painéis
+            </a>
+            <a href="#">
+                Dúvidas?
+            </a>
+            <a href="/logout">
+                Sair
+            </a>
+        </div>
+    </div>
     {{else}}
     <ul>
         <a href="#">
-            <li>Sobre a ferramenta</li>
+            <li>Como funciona?</li>
         </a>
         <a href="/signin">
             <li>Cadastrar</li>

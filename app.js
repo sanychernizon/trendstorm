@@ -209,7 +209,7 @@ app.get('/logout', (req, res) => {
 })
 
 // SERVIDOR
-const port = process.env.PORT || 3006;
+const port = process.env.PORT || 3000;
 
 app.listen(port, (error) => {
     if (error) {

@@ -14,11 +14,15 @@ main {
     height: 80%;
 }
 
-nav {
+#nav-desktop {
     padding: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+#nav-mobile {
+    display: none;
 }
 
 nav ul {
@@ -38,8 +42,47 @@ nav ul li:hover, .cadastrar-btn button:hover {
     color: #111111;
 }
 
+.box-nav-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#nav-login {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    border-radius: 0  0 30px 30px;
+    padding: 40px 20px 10px 20px;
+    background: #111111;
+    position: absolute;
+    margin-top: 10px;
+    z-index: 10;
+}
+
+#nav-login a {
+    width: 100%;
+    background: #111111;
+    padding: 10px;
+    text-align: center;
+    border-radius: 30px;
+}
+
+#nav-login a:hover {
+    background-color: #333333;
+}
+
+#nav-login a:last-child:hover {
+    background-color: #ab2929;
+}
+
 #logo {
-    width: 40%;
+    width: 20%;
+}
+
+#logo img {
+    width: 100%;
 }
 
 #thumbnail {
@@ -47,6 +90,19 @@ nav ul li:hover, .cadastrar-btn button:hover {
     height: 40px;
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
+    margin-left: 10px;
+}
+
+#menu-login {
+    z-index: 12;
+}
+
+.thumb-menu {
+    display: flex;
+    align-items: center;
+    background-color: #111111;
+    padding: 5px 5px 5px 10px;
+    border-radius: 30px;
 }
 
 .container {
