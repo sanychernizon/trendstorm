@@ -1,10 +1,14 @@
 <div class="box-form-popup">
-    <form method="POST" action="/update/{{panel._id}}">
-        <input name="panelName" placeholder="Nome do seu Painel" value="{{panel.name}}">
-        <input name="keyword" placeholder="Palavras-chave" value="{{panel.keyword}}">
-        <input name="startTime" type="date" placeholder="Data inicial" value="{{panel.startTime}}">
-        <input name="endTime" type="date" placeholder="Data final" value="{{panel.endTime}}">
-        <button type="submit">Editar</button>
+    <div class="box-form-popup-head">
         <a id="close-popup">Cancelar</a>
-    </form>
+    </div>
+    <div class="box-form-popup-body">
+        <form method="POST" action="/update/{{panel._id}}">
+            <input name="panelName" placeholder="Nome do seu Painel" value="{{panel.name}}">
+            <input name="keyword" placeholder="Palavras-chave" value="{{panel.keyword}}">
+            <input name="startTime" type="date" placeholder="Data inicial" value="{{panel.startTime}}">
+            <input name="endTime" type="date" placeholder="Data final" value="{{panel.endTime}}">
+            <button type="submit">Editar</button>
+        </form>
+    </div>
 </div>

@@ -1,22 +1,28 @@
 <div class="box-dashboard">
-    <h1>Bem vindo {{user.username}}</h1>
-    <h2>Meus paineis</h2>
+    <div id="popup">
+        {{>popup}}
+    </div>
     <form method="GET" action="/battle">
-        <div class="panels">
-            {{#each panels}}
-            {{>panelsThumb}}
-            {{/each}}
-        <div id="btn-add-panel">
-            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#777777" stroke-width="1" stroke-linecap="butt" stroke-linejoin="bevel"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-            <p>Adicionar painel</p>
+        <div class="box-panels">
+            <div class="box-head-panels">
+                <h2>Meus painéis</h2>
+            </div>
+            <div class="panels">
+                {{#each panels}}
+                {{>panelsThumb}}
+                {{/each}}
+                <div id="btn-add-panel">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none"
+                        stroke="#777777" stroke-width="1" stroke-linecap="butt" stroke-linejoin="bevel">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    <p>Adicionar painel</p>
+                </div>
+            </div>
+            <button class="btn-compare-panel" type="submit">Comparar Painéis</button>
         </div>
-        </div>
-        <button type="submit">Comparar Painéis</button>
     </form>
-</div>
 
-<div id="popup">
-    {{>popup}}
-</div>
 
-<script src="js/popup.js"></script>
+    <script src="js/popup.js"></script>
