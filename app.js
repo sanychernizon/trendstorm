@@ -175,8 +175,33 @@ const authCheck = (req, res, next) => {
 
 app.get('/dashboard', authCheck, (req, res) => {
     let user = req.user;
-    res.render('dashboard', { user })
+
+    Panel.find({ userId: user._id }, function (err, docs) {
+        const panels = docs;
+        if (err) {
+            console.log(err)
+        }
+        res.render('dashboard', { user, panels })
+    })
 })
+
+app.get('/battle', authCheck, (req, res) => {
+    let user = req.user;
+    let battlePanelsIds = req.query.panel;
+
+    let panelsIds = battlePanelsIds.map((item) => {
+        return mongoose.Types.ObjectId(item)
+    })
+
+    Panel.find({ _id: { $in: panelsIds } }, function (err, docs) {
+        const panels = docs;
+        if (err) {
+            console.log(err)
+        }
+        res.render('battle', { panels, user })
+    })
+})
+
 
 //ROTAS PANEL
 
@@ -184,8 +209,8 @@ app.post('/panel/gapi', authCheck, googleTrendsController);
 
 app.post('/panel', authCheck, (req, res) => {
     let user = req.user;
-    const { panelName, keyword, startTime, endTime } = req.body;
-
+    let { panelName, keyword, startTime, endTime } = req.body;
+    console.log(req.body)
     const panel = new Panel({
         name: panelName,
         keyword: keyword,
@@ -197,9 +222,48 @@ app.post('/panel', authCheck, (req, res) => {
             if (err) {
                 console.log(err);
             }
-            res.render('panel', { panelName, keyword, startTime, endTime, user })
+            res.render('panel-create', { panelName, keyword, startTime, endTime, user })
         })
 });
+
+app.get('/read/:panelId', (req, res) => {
+    let user = req.user;
+    let { panelId } = req.params;
+    Panel.findOne({ _id: panelId }, function (err, panel) {
+        if (err) return handleError(err);
+        res.render('panel-view', { panel, user })
+    });
+})
+
+app.post('/update/:panelId', (req, res) => {
+    let user = req.user;
+    let { panelName, keyword, startTime, endTime } = req.body;
+    let { panelId } = req.params;
+
+    console.log(panelId, panelName, keyword)
+
+    Panel.findOneAndUpdate({ _id: panelId }, {
+        name: panelName,
+        keyword: keyword,
+        startTime: startTime,
+        endTime: endTime
+    }).then((panel) => {
+        res.redirect(`/read/${panel._id}`)
+    }).catch((err) => {
+        if (err) {
+            console.log(err)
+        }
+    });
+})
+
+app.get('/delete/:panelId', (req, res) => {
+    let user = req.user;
+    let { panelId } = req.params;
+    Panel.deleteOne({ _id: panelId }, function (err) {
+        if (err) return handleError(err);
+        res.redirect('/dashboard')
+    });
+})
 
 // auth logout
 app.get('/logout', (req, res) => {

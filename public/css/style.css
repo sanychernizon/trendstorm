@@ -253,3 +253,21 @@ nav ul li:hover, .cadastrar-btn button:hover {
     display: inline-block;
     position: absolute;
 }
+
+/* PANEL-THUMB */
+
+.panels {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.panel-box {
+    width: 150px;
+    height: 200px;
+    background: #555555;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 5px 5px 0 0;
+}

@@ -6,15 +6,8 @@
 <div id="startTime">{{ startTime }}</div>
 <div id="endTime">{{ endTime }}</div>
 
-<button type="submit" id="delete-btn">Descartar</button>
+<a href="/dashboard">Voltar aos Meus Painéis</a>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="/js/chart-google.js"></script>
-
-<script>
-    const deleteBtn = document.querySelector('#delete-btn')
-    deleteBtn.addEventListener('click', () => {
-        console.log('delete')
-    });
-</script>

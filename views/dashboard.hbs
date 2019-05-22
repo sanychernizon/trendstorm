@@ -1,11 +1,19 @@
 <div class="box-dashboard">
     <h1>Bem vindo {{user.username}}</h1>
     <h2>Meus paineis</h2>
-    <div id="btn-add-panel">Adicionar painel</div>
+    <form method="GET" action="/battle">
+        <div class="panels">
+            {{#each panels}}
+            {{>panelsThumb}}
+            {{/each}}
+        </div>
+        <div id="btn-add-panel">Adicionar painel</div>
+        <button type="submit">Comparar Painéis</button>
+    </form>
 </div>
 
 <div id="popup">
     {{>popup}}
 </div>
-    
-    <script src="js/popup.js"></script>
+
+<script src="js/popup.js"></script>

@@ -1,0 +1,13 @@
+<div class="panel-box">
+    <div class="panel-info">
+        <input type="checkbox" name="panel" value="{{this._id}}">
+        <ul>
+            <li>{{ this.name }}</li>
+            <li>{{ this.keyword }}</li>
+        </ul>
+    </div>
+    <div class="panel-btns">
+        <a href="/read/{{this._id}}">Ver painel</a>
+        <a href="/delete/{{this._id}}">Deletar</a>
+    </div>
+</div>

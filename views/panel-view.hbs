@@ -1,0 +1,21 @@
+<div id="popup">
+    {{>popupEdit}}
+</div>
+
+<div>
+    <canvas id="myChart"></canvas>
+</div>
+<div id="panelName">{{ panel.name }}</div>
+<div id="keyword">{{ panel.keyword }}</div>
+<div id="startTime">{{ panel.startTime }}</div>
+<div id="endTime">{{ panel.endTime }}</div>
+
+
+<div id="btn-edit-panel">Editar</div>
+<a href="/dashboard">Voltar aos Meus Painéis</a>
+<a href="/delete/{{panel._id}}">Deletar</a>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="/js/chart-google.js"></script>
+<script src="js/popup-edit.js"></script>
