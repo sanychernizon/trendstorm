@@ -436,3 +436,16 @@ nav ul li:hover, .cadastrar-btn button:hover {
 .select-panel-btn input {
     cursor: pointer;    
 }
+.panel-info ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 3px;
+}
+
+.panel-info ul li:first-child {
+    background: #27424e;
+}
