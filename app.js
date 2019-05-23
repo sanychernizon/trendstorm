@@ -198,7 +198,7 @@ app.get('/battle', authCheck, (req, res) => {
         if (err) {
             console.log(err)
         }
-        res.render('battle', { panels, user })
+        res.render('panel-battle', { panels, user })
     })
 })
 

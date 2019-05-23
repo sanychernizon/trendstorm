@@ -3,7 +3,6 @@ const keywordDOM = document.querySelector('#keyword').textContent
 const startTimeDOM = document.querySelector('#startTime').textContent
 const endTimeDOM = document.querySelector('#endTime').textContent
 
-
 const config = {
     headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
