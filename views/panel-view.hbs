@@ -2,18 +2,33 @@
     {{>popupEdit}}
 </div>
 
-<div>
+<div class="btn panel-name">
+    <div id="panelName">{{ panel.name }}</div>
+</div>
+<div class="btn panel-keyword">
+    <p>Palavra-chave:</p>
+    <div id="keyword">{{ panel.keyword }}</div>
+</div>
+<div class="panel-time-box">
+    <div class="btn panel-time">
+        <p>De:</p>
+        <div id="startTime">{{ panel.startTime }}</div>
+    </div>
+    <div class="btn panel-time">
+        <p>Até:</p>
+        <div id="endTime">{{ panel.endTime }}</div>
+    </div>
+</div>
+
+<div class="chart-js">
     <canvas id="myChart"></canvas>
 </div>
-<div id="panelName">{{ panel.name }}</div>
-<div id="keyword">{{ panel.keyword }}</div>
-<div id="startTime">{{ panel.startTime }}</div>
-<div id="endTime">{{ panel.endTime }}</div>
 
-
-<div id="btn-edit-panel">Editar</div>
-<a href="/dashboard">Voltar aos Meus Painéis</a>
-<a href="/delete/{{panel._id}}">Deletar</a>
+<div class="menu-bottom">
+    <div class="btn btn-edit-bottom" id="btn-edit-panel">Editar</div>
+    <div class="btn btn-back-bottom"><a href="/dashboard">Voltar aos meus painéis</a></div>
+    <div class="btn btn-delete-bottom"><a href="/delete/{{panel._id}}">Deletar</a></div>
+</div>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>

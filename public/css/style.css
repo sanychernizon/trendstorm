@@ -257,7 +257,7 @@ nav ul li:hover, .cadastrar-btn button:hover {
     justify-content: center;
     width: 100%;
     height: 40px;
-    border-radius: 20px;
+    border-radius: 5px;
     border: 1px #666666 solid;
     margin-bottom: 10px;
 }
@@ -298,12 +298,13 @@ nav ul li:hover, .cadastrar-btn button:hover {
 .box-form-popup {
     width: 80%;
     height: 80%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     border-radius: 20px;
+    position: fixed;
 }
 
 .box-form-popup-head {
@@ -354,7 +355,6 @@ nav ul li:hover, .cadastrar-btn button:hover {
     display: inline-block;
     position: absolute;
 }
-
 
 
 /* PANEL-THUMB */
@@ -448,4 +448,87 @@ nav ul li:hover, .cadastrar-btn button:hover {
 
 .panel-info ul li:first-child {
     background: #27424e;
+}
+
+
+/* CHART-JS */
+
+.chart-js {
+    padding: 15px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.panel-name {
+    margin: 5px 15px 15px 15px;
+    background: #27424e;
+    text-transform: uppercase;
+
+}
+
+.panel-keyword {
+    margin: 5px 15px 15px 15px;
+    background: #333333;
+}
+
+.panel-keyword p {
+    margin-right: 5px;
+}
+
+.panel-time {
+    margin: 5px 15px 15px 15px;
+    background: #333333;
+}
+
+.panel-time p {
+    margin-right: 5px;
+}
+
+.panel-time-box {
+    display: flex;
+    justify-content: center;
+}
+
+.menu-bottom {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.btn-edit-bottom {
+    background: #27424e;
+    margin: 5px;
+}
+
+.btn-edit-bottom:hover {
+    background: #295c72;
+}
+
+.btn-back-bottom {
+    background: #333333;
+    margin: 5px;
+}
+
+.btn-back-bottom:hover {
+    background: #555555;
+
+}
+
+.btn-delete-bottom {
+    background: #571c1c;
+    margin: 5px;
+}
+
+.btn-delete-bottom:hover {
+    background: #ab2929;
 }
