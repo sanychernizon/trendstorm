@@ -1,16 +1,29 @@
+<div class="box-label-battle">
+    <div class="box-btn">
+        <div id="panelName">{{ panels.0.name }}</div>
+        <div id="keyword">{{ panels.0.keyword }}</div>
+    </div>
+    <div>VS</div>
+    <div class="box-btn">
+        <div id="panelName2">{{ panels.1.name }}</div>
+        <div id="keyword2">{{ panels.1.keyword }}</div>
+    </div>
+</div>
+
+<div class="hiden">
+    <div id="startTime">{{ panels.0.startTime }}</div>
+    <div id="endTime">{{ panels.0.endTime }}</div>
+    <div id="startTime2">{{ panels.1.startTime }}</div>
+    <div id="endTime2">{{ panels.1.endTime }}</div>
+</div>
+
 <div>
     <canvas id="myChart"></canvas>
 </div>
 
-<div id="panelName">{{ panels.0.name }}</div>
-<div id="keyword">{{ panels.0.keyword }}</div>
-<div id="startTime">{{ panels.0.startTime }}</div>
-<div id="endTime">{{ panels.0.endTime }}</div>
-
-<div id="panelName2">{{ panels.1.name }}</div>
-<div id="keyword2">{{ panels.1.keyword }}</div>
-<div id="startTime2">{{ panels.1.startTime }}</div>
-<div id="endTime2">{{ panels.1.endTime }}</div>
+<div class="menu-bottom">
+    <div class="btn btn-back-bottom"><a href="/dashboard">Voltar aos meus painéis</a></div>
+</div>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>

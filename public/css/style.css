@@ -276,10 +276,22 @@ nav ul li:hover, .cadastrar-btn button:hover {
     margin-top: 20px;
     background: #571c1c;
     color: #eeeeee;
+    cursor: pointer;
 }
 
 .btn-compare-panel:hover {
     background: #ab2929;
+}
+
+.btn-compare-panel-inactive {
+    padding: 15px;
+    width: 200px;
+    border-radius: 20px;
+    border: none;
+    text-transform: uppercase;
+    margin-top: 20px;
+    background: #333333;
+    cursor: default;
 }
 
 /* POPUP */
@@ -466,6 +478,24 @@ nav ul li:hover, .cadastrar-btn button:hover {
     text-align: center;
 }
 
+.box-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.box-btn:first-child {
+    background: #c44f69;
+}
+
+.box-btn:last-child {
+    background: #557746;
+}
+
 .panel-name {
     margin: 5px 15px 15px 15px;
     background: #27424e;
@@ -531,4 +561,15 @@ nav ul li:hover, .cadastrar-btn button:hover {
 
 .btn-delete-bottom:hover {
     background: #ab2929;
+}
+
+.hiden {
+    visibility: hidden;
+}
+
+.box-label-battle {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }

@@ -34,7 +34,6 @@ axios.post('/panel/gapi',
                 labels: resultsLabel,
                 datasets: [{
                     label: `${keywordDOM}`,
-                    backgroundColor: 'rgb(255, 99, 132)',
                     borderColor: 'rgb(255, 99, 132)',
                     data: resultsData
                 }]
