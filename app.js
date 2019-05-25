@@ -93,11 +93,13 @@ app.get('/', (req, res) => {
 })
 
 app.get('/signin', (req, res) => {
-    res.render('signin')
+    let user = req.user;
+    res.render('signin', { user })
 })
 
 app.get('/login', (req, res) => {
-    res.render('login')
+    let user = req.user;
+    res.render('login', { user })
 })
 
 app.post('/auth/local', (req, res) => {
