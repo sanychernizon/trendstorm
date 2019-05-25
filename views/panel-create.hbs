@@ -1,13 +1,28 @@
+<div class="btn panel-name">
+    <div id="panelName">{{ panelName }}</div>
+</div>
+<div class="btn panel-keyword">
+    <p>Palavra-chave:</p>
+    <div id="keyword">{{ keyword }}</div>
+</div>
+<div class="panel-time-box">
+    <div class="btn panel-time">
+        <p>De:</p>
+        <div id="startTime">{{ startTime }}</div>
+    </div>
+    <div class="btn panel-time">
+        <p>Até:</p>
+        <div id="endTime">{{ endTime }}</div>
+    </div>
+</div>
+
 <div>
     <canvas id="myChart"></canvas>
 </div>
 
-<div id="panelName">{{ panelName }}</div>
-<div id="keyword">{{ keyword }}</div>
-<div id="startTime">{{ startTime }}</div>
-<div id="endTime">{{ endTime }}</div>
-
-<a href="/dashboard">Voltar aos Meus Painéis</a>
+<div class="menu-bottom">
+    <div class="btn btn-back-bottom"><a href="/dashboard">Voltar aos meus painéis</a></div>
+</div>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>

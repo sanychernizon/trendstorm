@@ -33,14 +33,14 @@ nav ul {
 
 nav ul li {
     margin-right: 10px;
-    background-image: linear-gradient(to bottom right, #222222, #555555);
+    background-image: linear-gradient(to bottom right, #222222, #444444);
     padding: 10px;
     border-radius: 10px;
 }
 
 nav ul li:hover, .cadastrar-btn button:hover {
-    background-image: linear-gradient(to bottom right, #ffffff, #818181);
-    color: #111111;
+    background-image: linear-gradient(to bottom right, #444444, #555555);
+    color: #eeeeee;
 }
 
 .box-nav-login {
@@ -572,4 +572,8 @@ nav ul li:hover, .cadastrar-btn button:hover {
     width: 100%;
     align-items: center;
     justify-content: center;
+}
+
+.btn-vs {
+    margin: 15px;
 }

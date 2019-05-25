@@ -1,0 +1,53 @@
+.left {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    justify-content: center;
+}
+
+.rigth {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    background: #7335ad
+}
+
+.section-one {
+    width: 100%;
+    height: 100%;
+    background: #999999;
+    display: flex;
+
+}
+
+.section-two {
+    width: 100%;
+    height: 100%;
+    background: #834747;
+}
+
+.section-three {
+    width: 100%;
+    height: 100%;
+    background: #8f622f;
+}
+
+.section-four {
+    width: 100%;
+    height: 100%;
+    background: #79a145;
+}
+
+.section-five {
+    width: 100%;
+    height: 100%;
+    background: #3fada4;
+}
+
+.section-six {
+    width: 100%;
+    height: 100%;
+    background: #7335ad;
+}
