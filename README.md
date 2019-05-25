@@ -1,6 +1,6 @@
 # trendstorm
 
-**A trendstorm é um projeto orgulhosamente realizado por alunos da Ironhack SP. O trendstorm é uma plataforma de analise de tendências para você conceber seu futuro negocio. Procure produtos por categoria e palavras-chaves e obtenha insights do mercado sobre sua ideia. Salve e compare paineis de analise para encontrar seu proximo grande empreendimento! Para descobrir a plataforma siga este link : xxxxxxxxxxxxxxxxxxxxxxxxx**
+**A trendstorm é um projeto orgulhosamente realizado por alunos da Ironhack SP. O trendstorm é uma plataforma de analise de tendências para você conceber seu futuro negocio. Procure produtos por categoria e palavras-chaves e obtenha insights do mercado sobre sua ideia. Salve e compare paineis de analise para encontrar seu proximo grande empreendimento! Para descobrir a plataforma siga este link : www.trendstorm.herokuapp.com**
 
 
 ## Pré-requisitos
@@ -20,33 +20,40 @@ As dependências seguintes devem ser instaladas :
 - google-trends-api (4.9.0),
 - hbs (4.0.4),
 - mongoose (5.5.7),
+- bcryptjs (2.4.3),
+- connect-flash (0.1.1),
 - passport (0.4.0),
-- passport-google-oauth20 (2.0.0).
+- passport-google-oauth20 (2.0.0),
+- passport-local (1.0.0),
+- express-session (1.16.1).
 
 
 ## Arvore de Rotas
-"/"  <br>
- ↳ 'Sobre a Ferramenta' => "/"    <br>
- ↳ 'Cadastrar' => "/auth/local"   <br>
- ↳ 'Cadastrar' => "/login"   <br>
+"/"  (landing page) <br>
+ ↳ 'Como funciona ?' => "/"    <br>
+ ↳ 'Cadastrar' => "/signin"   <br>
+ -------------------↳ 'Cadastrar' => "/auth/local" <br>
  ↳ 'Entrar' => "/login"  <br>
------------------------↳ 'Entrar' => "/dashboard" <br>
-                                  ↳ 'Sobre a Ferramenta' => "/"  <br>
-                                  ↳ 'Logout' => "/logout" <br>
-                                  ↳ (click em painel existente) => "/panel=......" <br>
-                                                                       ↳ 'Edit' => "/panel=......"   (abertura de janela pop-up) <br>
-                                                                       ↳ 'Delete' => "/dashboard" <br>
-                                  ↳ 'Adicionar painel' => "/dashboard"  (abertura de janela pop-up)  <br>
-                                                                               ↳ 'Criar' => "/new-panel"  <br>
-                                                                                                ↳ 'Edit' => "/new-panel"  (abertura de janela pop-up)   <br>
-                                                                                                ↳ 'Save' => "/dashboard"   <br>
-                                  ↳ 'Panel Battle' => "/dashboard"  <br>
+-------------------↳ 'Entrar' => "/dashboard" <br>
+-------------------↳ 'Entrar com Google' => "/auth/google" <br>
+-----------------------------------------↳ 'Meus Paineis' => "/dashboard"  <br>
+-----------------------------------------↳ 'Duvidas' => "/"  <br>
+-----------------------------------------↳ 'Sair' => "/logout" <br>
+-----------------------------------------↳ 'Ver Painel' => "/read/:panelId" <br>
+--------------------------------------------------------------------------------↳ 'Voltar aos Meus Paineis' => "/dashboard"  <br>
+--------------------------------------------------------------------------------↳ 'Editar' => "/read/:panelId"     (abertura de pop-up)<br>
+-----------------------------------------------------------------------------------------------------↳ 'Editar' => "/update/:panelId"  <br>
+--------------------------------------------------------------------------------↳ 'Deletar' => "/delete/:panelId" <br>
+-----------------------------------------↳ '+' => "/dashboard"      (abertura de pop-up)<br>
+---------------------------------------------------------------------↳ 'Criar' => "/panel"  <br>
+--------------------------------------------------------------------------------↳ 'Voltar aos Meus Paineis' => "/dashboard"  <br>
+-----------------------------------------↳ 'Comparar paineis' => "/battle"  <br>
+--------------------------------------------------------------------------------↳ 'Voltar aos Meus Paineis' => "/dashboard"  <br>
 
 
-## Wireframes & User Stories
+## User Stories
 
-Acesse os wireframes aqui. <br>
-Acesse os user stories aqui.
+Acesse os user stories aqui. <br>
 
 
 ## Contribuir
@@ -62,7 +69,7 @@ Obrigado!
 
 
 ## Autores
-Sany Chernizon - @ <br>
+Sany Chernizon - @sanychernizon <br>
 Paul Divet - @pdiv55 <br>
-José Luiz Coe - @   <br>
-Gabriel Sicuto - @
+José Luiz Coe - @joseluizcoe <br>
+Gabriel Sicuto - @gsicuto
