@@ -326,6 +326,7 @@ nav ul li:hover, .cadastrar-btn button:hover {
     flex-direction: column;
     position: absolute;
     z-index: 999;
+    top: 35px;
 }
 
 .box-form-popup {
@@ -351,6 +352,7 @@ nav ul li:hover, .cadastrar-btn button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .box-form-popup form {
@@ -592,4 +594,20 @@ nav ul li:hover, .cadastrar-btn button:hover {
 
 .btn-vs {
     margin: 15px;
+}
+
+.tutorial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tutorial p {
+    padding: 10px 20px 10px 20px;
+    background: rgb(78, 117, 158);
+    color: #c1dbff;
+    border-radius: 15px;
+    border: 2px solid #1c4b8e;
+    text-align: center;
+    margin: 20px;
 }

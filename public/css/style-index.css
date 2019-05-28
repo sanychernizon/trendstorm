@@ -185,6 +185,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 100%;
     text-align: center;
+}
+
+.section-four ul li img {
+    width: 40%;
+    margin: 15px;
 }

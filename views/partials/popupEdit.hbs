@@ -7,7 +7,9 @@
             </svg></a>
     </div>
     <div class="box-form-popup-body">
-        <p>Modifique seus parâmetros de pesquisa e atualize seu painel</p>
+        <div class="tutorial">
+            <p>Modifique seus parâmetros de pesquisa e atualize seu painel</p>
+        </div>
         <form method="POST" action="/update/{{panel._id}}">
             <input name="panelName" placeholder="Nome do seu Painel" value="{{panel.name}}">
             <input name="keyword" placeholder="Palavras-chave" value="{{panel.keyword}}">
