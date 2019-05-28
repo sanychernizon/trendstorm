@@ -11,9 +11,14 @@
 .rigth {
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     height: 100%;
     width: 50%;
-    background: #222222
+}
+
+.rigth img {
+    width: 100%; 
+    border-bottom: 5px solid black;
 }
 
 .section-one {

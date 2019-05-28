@@ -1,8 +1,13 @@
 <div class="box-form-popup">
     <div class="box-form-popup-head">
-        <a id="close-popup"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="butt" stroke-linejoin="bevel"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
+        <a id="close-popup"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"
+                fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="butt" stroke-linejoin="bevel">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg></a>
     </div>
     <div class="box-form-popup-body">
+        <p>Modifique seus parâmetros de pesquisa e atualize seu painel</p>
         <form method="POST" action="/update/{{panel._id}}">
             <input name="panelName" placeholder="Nome do seu Painel" value="{{panel.name}}">
             <input name="keyword" placeholder="Palavras-chave" value="{{panel.keyword}}">

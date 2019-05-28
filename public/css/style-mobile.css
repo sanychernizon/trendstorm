@@ -37,7 +37,7 @@
     }
 
     .rigth {
-        width: 100%
+        display: none;
     }
 
     .section-two ul {

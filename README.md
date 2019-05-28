@@ -1,6 +1,6 @@
 # trendstorm
 
-**A trendstorm é um projeto orgulhosamente realizado por alunos da Ironhack SP. O trendstorm é uma plataforma de analise de tendências para você conceber seu futuro negocio. Procure produtos por categoria e palavras-chaves e obtenha insights do mercado sobre sua ideia. Salve e compare paineis de analise para encontrar seu proximo grande empreendimento! Para descobrir a plataforma siga este link : www.trendstorm.herokuapp.com**
+**A trendstorm é um projeto orgulhosamente realizado por alunos da Ironhack SP. O trendstorm é uma plataforma de analise de tendências para você conceber seu futuro negocio. Procure produtos por categoria e palavras-chaves e obtenha insights do mercado sobre sua ideia. Salve e compare paineis de analise para encontrar seu proximo grande empreendimento! Para descobrir a plataforma siga este link www.trendstorm.herokuapp.com**
 
 
 ## Pré-requisitos
@@ -53,7 +53,7 @@ As dependências seguintes devem ser instaladas :
 
 ## User Stories
 
-Acesse os user stories aqui. <br>
+Acesse os user stories <a href = "https://slides.com/pdiv55/user-stories/fullscreen"> aqui</a>. <br>
 
 
 ## Contribuir
@@ -66,7 +66,6 @@ Ao terminar, é so rodar os comandos seguintes no seu terminal:
 
 E criar um Pull Request para que avaliemos suas sugestoes de otimizaçao.
 Obrigado!
-
 
 ## Autores
 Sany Chernizon - @sanychernizon <br>
