@@ -1,5 +1,3 @@
 module.exports = {
-    MongoURI: 'mongodb+srv://sanyc:qazplok@cluster0-03f30.mongodb.net/test?retryWrites=true'
+    MongoURI: 'mongodb+srv://sany:qazplok@cluster0-95t8k.mongodb.net/test?retryWrites=true&w=majority'
 }
-
-//  Para conexao local = MongoURI: 'mongodb://localhost:27017/test?retryWrites=true'
